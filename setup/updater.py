@@ -4,7 +4,7 @@ import shlex
 from typing import Tuple
 import sys
 
-# if any requirements are cahnged then install that requirement
+# if any requirements are changed then install that requirement
 async def lines_differnce(file1, file2):
     with open(file1) as f1:
         lines1 = f1.readlines()
@@ -47,6 +47,6 @@ async def update_requirements(main , test):
         print(f"هناك خطا اثناء تنزيل المكاتب {str(e)}")
 
 
-loop = asyncio.get_event_loop()
-loop.run_until_complete(update_requirements(sys.argv[1] , sys.argv[2]))
-loop.close()
+if __name__ == "__main__":
+    # الطريقة الحديثة لإنشاء event loop
+    asyncio.run(update_requirements(sys.argv[1], sys.argv[2]))
